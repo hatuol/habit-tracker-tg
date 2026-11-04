@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: habit-tracker-tg
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ALLOW_DEV_AUTH
+        value: "0"
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBAPP_URL
+        sync: false
